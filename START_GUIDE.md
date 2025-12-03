@@ -96,7 +96,24 @@ docker-compose exec web python manage.py migrate
 
 ---
 
-### 3. Start the Frontend (React App)
+### 3. Create Admin Account (First Time Only)
+
+Create a superuser account to access the Django admin panel:
+
+```bash
+docker-compose exec web python manage.py createsuperuser
+```
+
+You will be prompted to enter:
+- Username
+- Email address
+- Password
+
+Once created, access the admin panel at: `http://localhost/admin/`
+
+---
+
+### 4. Start the Frontend (React App)
 
 Open another new terminal and run:
 
@@ -125,6 +142,7 @@ yarn start
 | **Stop Docker** | `docker-compose down` |
 | **Make Migrations** | `docker-compose exec web python manage.py makemigrations api` |
 | **Apply Migrations** | `docker-compose exec web python manage.py migrate` |
+| **Create Admin User** | `docker-compose exec web python manage.py createsuperuser` |
 | **Frontend Dev Server** | `cd deans-frontend && yarn install && yarn start` |
 
 ---
